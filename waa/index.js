@@ -59,6 +59,8 @@ function init() {
 	};
 
 	const fadeInnerShadowAnm = fadeInnerShadow();
+
+	fadeInnerShadowAnm.play();
 	const [fadeOutAnm, scaleUpAnm] = scaleUpFadeout(1000);
 
 	fadeInnerShadowAnm.play();
@@ -66,7 +68,7 @@ function init() {
 	setTimeout(() => {
 		fadeOutAnm.play();
 		scaleUpAnm.play();
-	}, 2000);
+	}, 10000);
 }
 
 window.addEventListener("load", init);

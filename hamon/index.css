@@ -1,0 +1,9 @@
+body {
+	width: 1536px;
+	height: 1366px;
+	background: #aaa;
+}
+
+#hamonCanvas {
+	border: 1px solid red;
+}
