@@ -58,10 +58,13 @@ function createRippleAnimation(image, stage) {
 		ripples.push(bitmap);
 	}
 
-	const fadeInDuration = 500;
-	const displayDuration = 400;
-	const fadeOutDuration = 500;
+	const fadeInDuration = 700;
+	const displayDuration = 200;
+	const fadeOutDuration = 400;
 	const delayBetweenRipples = 300; // 各リップルの開始タイミングの間隔
+
+	// 3. カスタムイージング
+	const ustomEase = createjs.Ease.getPowOut(2); // 2乗の減速
 
 	ripples.forEach((ripple, index) => {
 		const finalScale = maxScale * scaleFactors[index];
@@ -70,10 +73,10 @@ function createRippleAnimation(image, stage) {
 			.to(
 				{ alpha: 0.6, scaleX: finalScale, scaleY: finalScale },
 				fadeInDuration,
-				createjs.Ease.cubicOut
+				ustomEase
 			)
 			.wait(displayDuration)
-			.to({ alpha: 0 }, fadeOutDuration, createjs.Ease.cubicIn)
+			.to({ alpha: 0 }, fadeOutDuration, ustomEase)
 			.call(() => {
 				stage.removeChild(ripple);
 			});
@@ -81,7 +84,7 @@ function createRippleAnimation(image, stage) {
 }
 
 function scheduleNextAnimation(image, stage) {
-	const delay = getRandomDelay(1000, 2000); // 3秒から8秒の間でランダムな遅延
+	const delay = getRandomDelay(400, 3000); // ランダムに遅延
 	setTimeout(() => {
 		createRippleAnimation(image, stage);
 		scheduleNextAnimation(image, stage); // 次のアニメーションをスケジュール
