@@ -55,3 +55,10 @@ button {
 	left: 82px;
 	opacity: 0;
 }
+.btn::before {
+    opacity: var(--before-opacity, 0);
+}
+.btn::after {
+    opacity: var(--after-opacity, 0);
+    transform: scale(var(--after-scale, 1));
+}
