@@ -1,3 +1,8 @@
+/*
+	波紋アニメのスクリプト
+  HTML側でCreate.jsを読み込むこと
+*/
+
 // 定数
 const CANVAS_ID = "hamonCanvas";
 const RIPPLE_IMAGE_SRC = "./ripple.png";
